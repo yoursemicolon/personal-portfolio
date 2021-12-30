@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');" rel="stylesheet">
+    <title>Form Pendataan Vaksinasi Covid</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="img/Logo-its-biru-transparan.png" width="125px">
+                    <h2 class="logo">Institut Teknologi Sepuluh Nopember</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+                   
+    <div class="container">
+        <h1>Formulir Pendataan Vaksinasi Covid-19</h1>
+        <form class="form-temp" name="formInfo" action="" method="post" onsubmit="return validateForm()">
+            <div class="isi-form">
+                <label>Nama </label> <br/>
+                <input type="text" name="nama" placeholder="Nama Lengkap" class="form-control"> <br/>
+            </div>
+            <div class="isi-form">
+                <label>NRP </label> <br/>
+                <input type="text" name="nrp" placeholder="NRP" class="form-control"> <br/>
+            </div>
+            <div class="isi-form">
+                <label>Alamat </label> <br/>
+                <input type="text" name="alamat" placeholder="Alamat" class="form-control"><br/>
+            </div>
+            <div class="isi-form">
+                <label>Email </label> <br/>
+                <input type="text" name="email" placeholder="Email" class="form-control"><br/>
+            </div>
+            <div class="isi-form">
+                <label>Jurusan </label> <br/>
+                <select name="jurusan" id="" class="form-control-opt">
+                    <option value="0">Pilih Jurusan</option>
+                    <option value="1">Teknik Informatika</option>
+                    <option value="2">Sistem Informasi</option>
+                    <option value="3">Teknik Elektro</option>
+                    <option value="4">Teknologi Informasi</option>
+                    <option value="5">Teknik Komputer</option>
+                    <option value="6">Teknik Fisika</option>
+                    <option value="7">Teknik Kimia</option>
+                    <option value="8">Statistika</option>
+                    <option value="9">Teknik Perkapalan</option>
+                    <option value="10">Teknik Material Metalurgi</option>
+                </select><br/>
+            </div>
+            <div class="ket-vaksin">
+                <p>Keterangan Vaksin</p>
+            </div>
+            <div class="container-1">
+                <div class="isi-form-1">
+                    <input type="checkbox" id="vaksin-0" name="vaksin-0" value="Vaksin0">
+                    <label>Belum Vaksin</label><br/>
+                </div>
+                <div class="isi-form-1">
+                    <input type="checkbox" id="vaksin-1" name="vaksin-1" value="Vaksin1">
+                    <label>Hanya Vaksin Dosis 1</label><br/>
+                </div>
+                <div class="isi-form-1">
+                    <input type="checkbox" id="vaksin-2" name="vaksin-2" value="Vaksin2">
+                    <label>Sudah Vaksin</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" data-rel="back" >Submit</button>
+        </form>
+    </div>
+
+        <script src="./script.js"></script>
+   
+</body>
+</html>

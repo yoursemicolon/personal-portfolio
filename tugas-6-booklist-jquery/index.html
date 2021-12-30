@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <link rel="icon" href="./icon2.png" sizes="32x32">
+    <title>Tugas PWEB 7 - Implementasi Jquery</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    html{
+        scroll-behavior: smooth;
+    }
+    body{
+        font-family: 'Poppins', sans-serif;
+        background-color: #f0f2f5;
+    }
+    nav{
+        display: flex;
+        background-color:rgb(255, 225, 127);
+        justify-content: space-between;
+        box-shadow: 0px 0px 10px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1rem 4.5rem;
+    }
+    nav ul{
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        margin-right: 8.5rem;
+    }
+    nav ul a{
+        text-decoration: none;
+        font-family:'Courier New', Courier, monospace;
+        font-size: 1rem;
+        font-weight:bold;
+        color:black;
+    }
+    nav ul a:hover{
+        color: rgba(13, 79, 123, 0.8);
+    }
+    nav ul a:active{
+        color: rgba(13, 79, 123, 0.8);
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .content{
+        width: 500px;
+        border: 5px solid black;
+        border-radius: 25px;
+        background-color: rgba(17, 97, 152, 0.8);
+        padding: 40px;
+        margin: 250px;
+    }
+    form{ 
+        align-items: center;
+    }
+    form input, select{
+        height: 30px;
+        width: 500px;
+    }
+    .book-field{
+        margin-bottom: 15px;
+    }
+    .btn{
+        border-radius: 10px;
+        height: 50px;
+        box-shadow: 0px 10px black;
+        background-color:rgb(156, 177, 199);
+        color: black;
+        font-family:'Courier New', Courier, monospace;
+        font-size: medium;
+        margin-bottom: 15px;
+    }
+    .btn:hover{
+        background-color: rgb(216, 185, 147);
+    }
+
+    /* Animate */
+    /* .toggler { 
+        width: 500px; height: 200px; position: relative; 
+    } */
+    #button { 
+        padding: .5em 1em; 
+        text-decoration: none; 
+        margin-bottom: 250px;
+    }
+    #effect { 
+        width: 500px;
+        height: 170px; 
+        padding: 40px;
+        margin: 250px 0 100px;
+        position: relative; 
+        border: 5px solid black;
+        border-radius: 25px;
+        background-color: rgba(17, 97, 152, 0.8);
+    }
+    #effect h2 { 
+        padding: 0.4em; 
+        text-align: center; 
+        margin-bottom: 20px;
+    }
+
+</style>
+<body>
+    <nav>
+        <div class="logo">
+            <h3>Implementasi JQuery</h3>
+        </div>
+        <ul>
+            <li class="item"><a href="#make-list">Make Book List</a></li>
+            <li class="item"><a href="#make-animation">Make Animation</a></li>
+        </ul>
+    </nav>
+    <div class="container" id="make-list">
+        <div class="content" >  
+            <h1>Add New Book 📚</h1>
+            <form autocomplete="off" name="form">
+              <div class="book-field">
+                <label>New Book Name : </label>
+                <input type="text" id="title" name="title" class="form-control"/>
+              </div>
+              <input class="btn" type="button" value="Add New Book" id="add_book" />
+              <div class="book-list">
+                <label>Book's List :</label>
+                <select id="list">
+                  <option value="">Results</option>
+                </select>
+              </div>
+            </form>
+          </div>
+    </div>
+    <div class="container" id="make-animation">
+        <div class="toggler">
+            <div id="effect" class="ui-widget-content-ui-corner-all">
+                <h2 class="ui-widget-header ui-corner-all">Color Animation 🌈</h2>
+                <p>
+                    Animate the properties of elements between colors. jQuery UI bundles the jQuery Color plugins which provides color animations as well as many utility functions for working with colors.
+                </p>
+            </div>
+            <p align="center">
+                <button id="button" class="btn btn-primary mt-3">Toggle Effect</button>
+            </p>
+        </div>
+    </div>
+</body>
+<script>
+    //list
+    $(document).ready(function () {
+      $("#add_book").click(function () {
+        var inserted = $("#title").val();
+        if(inserted == ""){
+            return;
+        }else if ($('#list option:contains('+ inserted +')').length) {
+            return;
+        }else{
+          $("#list").append(new Option(inserted, inserted));
+        }
+    });
+    });
+    
+    Animation
+    $(function() {
+        var state= true;
+        $('#button').on('click', function() {
+            if(state){
+                $('#effect').animate({
+                    width: "500px",
+                    "background-color" : "rgba(24, 53, 173, 0.8)",
+                    "color" : "whitesmoke",
+                    "font-size" : "16px"
+                }, 1000);
+                $('#effect h2').animate({
+                    "color" : "rgb(240, 171, 22)"
+                }, 1000);
+            }
+            else{
+                $('#effect').animate({
+                    width: "700px",
+                    "background-color" : "rgba(33, 142, 193, 0.8)",
+                    "color" : "black",
+                    "font-size" : "18px"
+                }, 1000);
+                $('#effect h2').animate({
+                    "color" : "black"
+                }, 1000);
+            }
+            state = !state;
+        });
+    });
+  </script>
+</html>
